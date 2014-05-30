@@ -1,0 +1,12 @@
+bin/
+lib/
+logs/
+.settings/
+.metadata/
+.classpath
+.project
+
+license_notice.txt
+
+src/com/lion328/knot/Test.java
+src/com/lion328/knot/res/
