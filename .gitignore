@@ -8,5 +8,6 @@ logs/
 
 license_notice.txt
 
-src/com/lion328/knot/Test.java
-src/com/lion328/knot/res/
+src/test/
+src/main/resources/supermarket.ttf
+target/

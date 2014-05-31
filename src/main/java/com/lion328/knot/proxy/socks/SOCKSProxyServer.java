@@ -97,7 +97,7 @@ public class SOCKSProxyServer implements IProxyServer {
 				public Object[] function(Object[] data) {
 					boolean finish = false;
 					try {
-						new Socket().bind(new InetSocketAddress(InetAddress.getByAddress((byte[])data[0]), (int)data[1]));
+						new Socket().bind(new InetSocketAddress(InetAddress.getByAddress((byte[])data[0]), (Integer)data[1]));
 						finish = true;
 					} catch (Exception e) {
 						finish = false;

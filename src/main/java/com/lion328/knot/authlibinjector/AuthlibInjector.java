@@ -28,7 +28,7 @@ import com.lion328.knot.util.ZipUtil;
 public class AuthlibInjector {
 
 	public static File getInjectedLibrary(File originalLib) throws IOException {
-		File tempPath = new File(Util.getAppdata(), "CommKnot-temp"), extract = new File(tempPath, "extract");
+		File tempPath = new File(Util.getAppdata(), "Knot-temp"), extract = new File(tempPath, "extract");
 		File injected = new File(tempPath, "authlib-" + System.nanoTime() + ".jar");
 		
 		//Cleanup old lib

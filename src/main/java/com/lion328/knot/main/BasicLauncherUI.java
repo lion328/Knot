@@ -93,7 +93,7 @@ public class BasicLauncherUI implements ILauncherUI{
 		
 		Font font = null;
 		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/com/lion328/knot/res/supermarket.ttf")).deriveFont(Font.PLAIN);
+			font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/supermarket.ttf")).deriveFont(Font.PLAIN);
 			GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
 			font = font.deriveFont(24F);
 		} catch (FontFormatException e1) {
@@ -190,7 +190,7 @@ public class BasicLauncherUI implements ILauncherUI{
 		passwordField.setColumns(10);
 		
 		try {
-			ImagePanel imagePanel = new ImagePanel(ImageIO.read(getClass().getResourceAsStream("/com/lion328/knot/res/ui.png")));
+			ImagePanel imagePanel = new ImagePanel(ImageIO.read(getClass().getResourceAsStream("/ui.png")));
 			imagePanel.setBounds(0, 0, 800, 428);
 			imagePanel.setOpaque(false);
 			frame.getContentPane().add(imagePanel);

@@ -62,7 +62,7 @@ public class SOCKS4Message implements INetworkCommunicable {
 		
 		boolean binding_rej = false;
 		if(command == COMMAND_BINDING)
-			binding_rej = (boolean)bindEvent.function(new Object[]{ip, port})[0];
+			binding_rej = (Boolean)bindEvent.function(new Object[]{ip, port})[0];
 		
 		out.writeByte(0x0);
 		if(binding_rej) out.writeByte(REQUEST_REJECTED);
