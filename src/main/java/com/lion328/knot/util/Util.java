@@ -71,4 +71,12 @@ public class Util {
 	    return url.getHost() + ":" + (url.getProtocol().equals("http") ? 80 : url.getPort());
 	}
 	
+	public static URL safeURL(String url) {
+		try {
+			return new URL(url);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

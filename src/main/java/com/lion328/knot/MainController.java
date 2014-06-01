@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.net.URL;
 
 import com.lion328.knot.serverapi.Authentication;
-import com.lion328.knot.serverapi.CommKnotServerAPI;
 import com.lion328.knot.serverapi.DownloadList;
 
 public class MainController {
@@ -34,15 +33,15 @@ public class MainController {
 		this.launch = launch;
 		this.ui = ui;
 		ui.updateController(this);
-		ui.updateNews(CommKnotServerAPI.getNewsContent());
-		ui.updateServerStatus(CommKnotServerAPI.getServerStatus());
+		ui.updateNews(Config.instance.getNewsContent());
+		ui.updateServerStatus(Config.instance.getServerStatus());
 	}
 	
 	public void authentication(String username, String password){
 		Authentication auth;
 		String errmsg = null;
 		try {
-			auth = new Authentication(GlobalVariables.getAuthenticationURL(), username, password, 0x434F4D4D);
+			auth = new Authentication(Config.instance.AUTHENTICATION_URL, username, password, 0x434F4D4D);
 			latestAuth = auth;
 		} catch (Exception e) {
 			errmsg = e.getMessage();
@@ -55,10 +54,10 @@ public class MainController {
 		new Thread() {
 			public void run() {
 				try {
-					DownloadList dllist = new DownloadList(GlobalVariables.getFileListURL(), GlobalVariables.getDownloadURL());
+					DownloadList dllist = new DownloadList(Config.instance.FILELIST_URL, Config.instance.DOWNLOAD_DIRECTORY_URL);
 					dllist.delete(launch.getBaseDirectory());
 					for(URL downloadLink : dllist.getFileURLsToDownload()) {
-						File downloadTo = new File(downloadLink.getPath().substring(GlobalVariables.getDownloadURL().getPath().length()));
+						File downloadTo = new File(downloadLink.getPath().substring(Config.instance.DOWNLOAD_DIRECTORY_URL.getPath().length()));
 						Downloader dl = new Downloader(downloadLink, downloadTo);
 						dl.addDownloadedChangeEvent(new IDownloaderEvent() {
 							@Override

@@ -56,9 +56,8 @@ public class FileUtil {
 	public static void delete(File f) {
 		if(f.exists()) {
 			if(f.isDirectory())
-			for(File f2 : listAllFiles(f)) {
+			for(File f2 : listAllFiles(f))
 				delete(f2);
-			}
 			f.delete();
 		}
 	}
